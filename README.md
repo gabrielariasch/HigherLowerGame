@@ -1,19 +1,31 @@
 # HigherLowerGame
 
-The code begins by importing the necessary modules: game_data (a module containing data about the items to be compared), random (for generating random choices), and art (a module containing ASCII art for visual elements).
+This code is a game that compares the follower counts of two social media accounts. Here's a breakdown of how the code works:
 
-The variables game_on, score, and dir are initialized. game_on is a boolean variable that controls the game loop, score keeps track of the player's score, and dir is assigned the value of game_data.data (presumably a list or dictionary containing the data for the items to be compared).
+The code imports three modules: game_data, random, and art. These modules provide functionality for accessing game data, generating random values, and displaying ASCII art, respectively.
 
-The main game loop starts with the while statement and continues as long as game_on is True.
+The variables score and game_on are initialized. score keeps track of the player's score, and game_on determines whether the game should continue or end.
 
-Inside the loop, two random items are chosen from the dir using the random.choice() function and assigned to random1 and random2 variables.
+The variable dir is assigned the value of game_data.data. It suggests that the game_data module contains a data object or dictionary that holds information about social media accounts.
 
-The current score, game logo, and details of the two items are printed using print() statements and formatted strings.
+The function format_data(account) takes an account as input, extracts specific details (name, description, and country) from it, and returns a formatted string.
 
-The player is prompted to input their guess by entering 'A' or 'B', representing their choice of which item has more followers.
+The function check_guess(guess, a_followers, b_followers) compares the number of followers of two accounts (A and B) and checks if the player's guess is correct. It returns True if the guess is correct and False otherwise.
 
-The player's guess is then checked using if and elif statements. If the guess is 'A', it compares the follower counts of the two items. If random1 has more followers, the player's score is increased by 1. If the follower counts are equal, the score is still increased by 1. If random2 has more followers, the game ends, and the player's final score is displayed.
+The main game loop (while game_on) runs as long as game_on is True.
 
-If the player's guess is 'B', the same comparison is made, but the consequences differ. If random1 has more followers, the game ends, and the player's final score is displayed. If random2 has more followers, the player's score is increased by 1.
+Inside the loop, two random social media accounts are chosen from dir using the random.choice() function. These accounts are assigned to the variables random1 and random2.
 
-The loop continues to the next iteration, and the game repeats until the player's guess is incorrect or they choose to exit the game.
+The game's ASCII art logo and the details of the two accounts are printed using the print() function and the art module.
+
+The player is prompted to guess which account has more followers by inputting 'A' or 'B'. The input is converted to lowercase using the lower() method and assigned to the variable guess.
+
+The follower counts of the two random accounts are extracted from the random1 and random2 dictionaries and assigned to the variables random1_follower_count and random2_follower_count, respectively.
+
+The function check_guess() is called with the guess and follower count variables as arguments. The result is stored in the variable is_correct.
+
+If the guess is correct (is_correct is True), the player's score is incremented by 1, and a message is printed to indicate a correct answer along with the current score.
+
+If the guess is incorrect (is_correct is False), a message is printed indicating an incorrect answer along with the final score.
+
+The game_on variable is set to False to end the game, and the break statement exits the loop.
